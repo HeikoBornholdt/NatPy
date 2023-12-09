@@ -1,0 +1,35 @@
+name: Test
+
+on:
+  push:
+    branches:
+      - '*'
+    tags:
+      - '*'
+  pull_request:
+
+jobs:
+  test:
+    strategy:
+      matrix:
+        python: [ '3.8', '3.9', '3.10', '3.11', '3.12' ]
+
+    name: Python ${{ matrix.python }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - uses: actions/checkout@v4.1.1
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Install dependencies
+        run: |
+          sudo apt-get -y install build-essential python3-dev libnetfilter-queue-dev
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      - name: Run tests
+        run: |
+          pip install pytest pytest-cov
+          ./test_nat.py
