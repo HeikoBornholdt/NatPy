@@ -87,9 +87,11 @@ $ ./nat.py --mapping port_dependent \
 ```bash
 $ ./nat.py --help
 usage: nat.py [-h] [--mapping {endpoint_independent,host_dependent,port_dependent}] [--allocation {port_preservation,port_contiguity,random}] [--filtering {endpoint_independent,host_dependent,port_dependent}] [--lan-subnet LAN_SUBNET]
-              [--wan-address WAN_ADDRESS] [--queue QUEUE]
+              [--wan-address WAN_ADDRESS] [--queue QUEUE] [-v]
 
-options:
+python-based network address translator with configurable mapping, allocation, and filtering behavior for Netfilter NFQUEUE
+
+optional arguments:
   -h, --help            show this help message and exit
   --mapping {endpoint_independent,host_dependent,port_dependent}
                         new mapping creation policy
@@ -102,6 +104,7 @@ options:
   --wan-address WAN_ADDRESS
                         public IP address
   --queue QUEUE         queue number for Netfilter
+  -v, --verbose         Increase output verbosity
 ```
 
 ## License
