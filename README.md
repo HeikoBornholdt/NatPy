@@ -59,22 +59,22 @@ Then, you need to configure Netfilter to direct traffic to a Netfilter queue by 
 
 ```bash
 # direct LAN -> WAN packets to queue
-iptables --table filter \
+$ iptables --table filter \
 	--append FORWARD \
 	--jump NFQUEUE \
 	--queue-num 0 \
 	--source 192.168.178.0/24 \
 	! --destination 93.184.216.34
 
-# direct WAN -> LAN packets to queu
-iptables --table mangle \
+# direct WAN -> LAN packets to queue
+$ iptables --table mangle \
 	--append PREROUTING \
 	--jump NFQUEUE \
 	--queue-num 0 \
-	-d 93.184.216.34
+	--destination 93.184.216.34
 
 # start NatPy
-./nat.py --mapping port_dependent \
+$ ./nat.py --mapping port_dependent \
 	--allocation random \
 	--filtering port_dependent \
 	--lan-subnet 192.168.178.0/24 \
