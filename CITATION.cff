@@ -1,0 +1,22 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: NatPy
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: Heiko
+    family-names: Bornholdt
+    orcid: 'https://orcid.org/0000-0003-0013-7966'
+    affiliation: Universität Hamburg
+    email: heiko.bornholdt@uni-hamburg.de
+repository-code: 'https://github.com/HeikoBornholdt/NatPy'
+abstract: >-
+  python-based network address translator with
+  configurable mapping, allocation, and filtering
+  behavior for Netfilter NFQUEUE.
+license: MIT
+date-released: '2023-12-10'
